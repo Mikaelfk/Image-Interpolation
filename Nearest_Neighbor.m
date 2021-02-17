@@ -29,6 +29,6 @@ figure(1), imshow(inputImage)
 title('Original image')
 
 figure(2), imshow(outputImage)
-title('Image after nearest neighbour interpolation')
+title('Image after nearest neighbor interpolation')
 
-imwrite(outputImage, "OutputImageNearestNeighboor.png")
+imwrite(outputImage, "OutputImageNearestNeighbor.png")
