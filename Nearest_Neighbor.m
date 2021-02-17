@@ -7,19 +7,19 @@ scale = [4 4];
 
 % Number of rows and columns in the new image
 rn = scale(1)*r;
-rc = scale(2)*c;
+cn = scale(2)*c;
 
-outputImage = zeros(x,y, class(inputImage));
+outputImage = zeros(rn,cn, class(inputImage));
 
 
-for i=1:x
+for i=1:rn
     % If you round the current row times the ratio between number of 
     % old and new rows you get the correct row in the original image
     newI = round( (i-1)*(r-1)/(rn-1)+1 );
     
-    for j=1:y
+    for j=1:cn
         % Do the same for the colums
-        newJ = round( (j-1)*(c-1)/(rc-1)+1 );
+        newJ = round( (j-1)*(c-1)/(cn-1)+1 );
         % Assign the new values to the new image
         outputImage(i,j) = inputImage(newI,newJ);
     end
