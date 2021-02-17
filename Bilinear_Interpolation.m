@@ -15,18 +15,24 @@ cn = (scale(2) * c);
 newImage = zeros(rn,cn, class(inputImage));
 
 for i=1:rn
+    % Finds the row of the current pixel in the old image.
     y = ((i-1)*(r-1)/(rn-1)+1);
     for j=1:cn
+        % Finds the column of the current pixel in the old image.
         x = ((j-1)*(c-1)/(cn-1)+1);
         % Check for values out of range
         x(x < 1) = 1;
         x(x > r - 0.001) = r - 0.001;
+        % x1 is the column to the left of the current pixel
         x1 = floor(x);
+        % x2 is the column to the right of the current pixel 
         x2 = x1 + 1;
          
         y(y < 1) = 1;
         y(y > c - 0.001) = c - 0.001;
+        % y1 is the row to the top of the current pixel
         y1 = floor(y);
+        % y2 is the row to the bottom the current pixel
         y2 = y1 + 1;
         % Finds the 4 neighbouring pixels in the original image
         NP1 = inputImage(y1,x1);
